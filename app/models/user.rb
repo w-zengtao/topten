@@ -6,6 +6,20 @@ class User < ActiveRecord::Base
 
   before_save :ensure_authentication_token
 
+  def ensure_authentication_token
+    if authentication_token.blank?
+      self.authentication_token = generate_authentication_token
+    end
+  end
+
+  # 用户名 邮箱登录 这里暂时只放出 邮箱
+  # 用户名 登录的话必须限制用户名唯一
+  class << self
+    def find_for_database_authentication(conditions={})
+      find_by(email: conditions[:email]) unless conditions[:email].blank?
+    end
+  end
+  
   private
 
   def generate_authentication_token

@@ -1,7 +1,7 @@
 module Api
   module V1
     class BaseController < ApplicationController
-      protect_from_forgery with: :null_session
+      # protect_from_forgery with: :null_session
 
       before_action :authenticate_user_from_token!
       private
