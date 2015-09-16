@@ -2,6 +2,7 @@ module Api
   module V1
     class UserTokensController < BaseController
 
+      skip_before_action :authenticate_user_from_token!
       # 登录
       def create
         user = User.find_for_database_authentication(params[:user])
@@ -16,6 +17,17 @@ module Api
           render json: { token: user.authentication_token, id: user.id }
         else
           render json: { error: 'password error' }, status: 404
+        end
+      end
+
+      # 注销 这个需要校验token 同时更换新的token
+      # TODO 
+      def destroy
+        user = User.find_by_authentication_token(params[:token])
+        if user
+          user.restore_authentication_token! # 这个得自己重写了
+          sign_out user
+          render json: { status: 'sign_out success #{user.id}' }
         end
       end
 
