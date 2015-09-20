@@ -13,6 +13,8 @@ module Api
         render json: { nation: @nation }
       end
 
+
+      #  TODO 这里也许使用一个 list_children 更加符合逻辑
       def list_cities
         @nations = Nation.list_cities params[:province_id]
         render json: { nations: @nations }

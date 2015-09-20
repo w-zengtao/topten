@@ -13,6 +13,11 @@ class Nation < ActiveRecord::Base
     def list_districts city_id
       Nation.where(parent: city_id)
     end
+
+    # acts as voteable
+    def most_wanted_cites
+
+    end
   end
 
   # 是否为县一级别的行政区
