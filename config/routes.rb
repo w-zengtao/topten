@@ -7,6 +7,12 @@ Rails.application.routes.draw do
     scope module: :v1 do
       resources :users, only: [:create, :index, :show, :update]
       resources :user_tokens, only: [:create, :destroy]
+      resources :nations do 
+        collection do 
+          get :list_cities
+          get :list_districts
+        end
+      end 
     end
   end
 
