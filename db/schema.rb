@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150915140751) do
+ActiveRecord::Schema.define(version: 20150920015028) do
+
+  create_table "nations", force: :cascade do |t|
+    t.string "code",     limit: 40, null: false
+    t.string "province", limit: 40, null: false
+    t.string "city",     limit: 40, null: false
+    t.string "district", limit: 40, null: false
+    t.string "parent",   limit: 40, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "avatar",                 limit: 255
