@@ -32,6 +32,9 @@ GEM
       activemodel (= 4.2.4)
       activesupport (= 4.2.4)
       arel (~> 6.0)
+    activerecord-postgis-adapter (3.0.0)
+      activerecord (~> 4.2)
+      rgeo-activerecord (~> 4.0)
     activesupport (4.2.4)
       i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
@@ -70,10 +73,10 @@ GEM
     mime-types (2.6.2)
     mini_portile (0.6.2)
     minitest (5.8.0)
-    mysql2 (0.3.20)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
+    pg (0.18.3)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -108,6 +111,10 @@ GEM
     rake (10.4.2)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
+    rgeo (0.4.0)
+    rgeo-activerecord (4.0.0)
+      activerecord (~> 4.2)
+      rgeo (~> 0.3)
     spring (1.4.0)
     sprockets (3.3.4)
       rack (~> 1.0)
@@ -131,11 +138,12 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  activerecord-postgis-adapter
   annotate (~> 2.6.5)
   awesome_print
   better_errors
   devise
-  mysql2 (~> 0.3.18)
+  pg
   rails (= 4.2.4)
   rails-api
   spring
