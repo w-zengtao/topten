@@ -4,7 +4,7 @@ module Api
 
       #  默认是列出所有的省份
       def index
-        @nations = Nation.list_provinces
+        @nations = Nation.provinces
         render json: { nations: @nations }
       end
 
@@ -16,12 +16,12 @@ module Api
 
       #  TODO 这里也许使用一个 list_children 更加符合逻辑
       def list_cities
-        @nations = Nation.list_cities params[:province_id]
+        @nations = Nation.cities params[:province_id]
         render json: { nations: @nations }
       end
 
       def list_districts
-        @nations = Nation.list_districts params[:city_id]
+        @nations = Nation.districts params[:city_id]
         render json: { nations: @nations }
       end
     end

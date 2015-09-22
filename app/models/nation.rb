@@ -2,18 +2,6 @@
 class Nation < ActiveRecord::Base
 
   class << self
-    def list_provinces nation_id = 1
-      Nation.where(parent: nation_id)
-    end
-
-    def list_cities province_id 
-      Nation.where(parent: province_id)
-    end
-
-    def list_districts city_id
-      Nation.where(parent: city_id)
-    end
-
     # acts as voteable
     def most_wanted_cites
 
@@ -32,4 +20,11 @@ class Nation < ActiveRecord::Base
   def is_province?
     !self.province.blank?
   end
+
+  # 取出所有的省份
+  scope :provinces, ->(nation_id = 1) { where(parent: nation_id) }
+  # 取出对应省份的市
+  scope :cities, ->(province_id) { where(parent: province_id) }
+  # 取出对应市的下属辖区
+  scope :districts, ->(district_id) { where(parent: district_id) }
 end
