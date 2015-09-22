@@ -10,6 +10,9 @@ gem 'unicorn'
 gem 'active_model_serializers'
 
 gem 'devise'
+gem 'ancestry'
+gem 'acts_as_votable', '~> 0.10.0'
+gem 'acts-as-taggable-on', '~> 3.4'
 
 group :development do
   gem 'spring'

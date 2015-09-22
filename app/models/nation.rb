@@ -1,6 +1,8 @@
 # 先这样 到时候是否需要三级拆解 ？
 class Nation < ActiveRecord::Base
 
+  has_ancestry
+
   class << self
     # acts as voteable
     def most_wanted_cites
@@ -13,7 +15,7 @@ class Nation < ActiveRecord::Base
     !self.district.blank?
   end
 
-  def is_city
+  def is_city?
     !self.city.blank?
   end
 
