@@ -5,3 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Nation.all.each do |nation|
+  print nation.id
+  puts '-' * 80
+   if nation.father != 0
+      @f_nation = Nation.find(nation.father)
+      nation.parent = @f_nation
+      nation.save
+   end
+end
