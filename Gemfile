@@ -14,6 +14,9 @@ gem 'ancestry'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'acts-as-taggable-on', '~> 3.4'
 
+gem 'carrierwave'
+gem 'carrierwave-upyun'
+
 group :development do
   gem 'spring'
   gem 'better_errors'
