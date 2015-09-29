@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: nations
+#
+#  id         :integer          not null, primary key
+#  code       :string
+#  province   :string
+#  city       :string
+#  district   :string
+#  father     :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  ancestry   :string
+#
+
 # 先这样 到时候是否需要三级拆解 ？
 # TODO 4个直辖市是否要还原
 class Nation < ActiveRecord::Base
