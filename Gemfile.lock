@@ -167,6 +167,7 @@ DEPENDENCIES
   pg
   rails (= 4.2.4)
   rails-api
+  rgeo
   spring
   unicorn
 

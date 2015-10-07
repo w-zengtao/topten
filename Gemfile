@@ -4,6 +4,7 @@ gem 'rails', '4.2.4'
 gem 'rails-api'
 # gem 'mysql2', '~> 0.3.18'
 gem 'pg'
+gem 'rgeo'
 gem 'activerecord-postgis-adapter'
 
 gem 'unicorn'
