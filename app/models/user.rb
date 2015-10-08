@@ -27,6 +27,8 @@ class User < ActiveRecord::Base
 
   before_save :ensure_authentication_token
 
+  acts_as_voter
+
   def ensure_authentication_token
     if authentication_token.blank?
       self.authentication_token = generate_authentication_token
