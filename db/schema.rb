@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151008062842) do
+ActiveRecord::Schema.define(version: 20151008084331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,15 @@ ActiveRecord::Schema.define(version: 20151008062842) do
   end
 
   add_index "nations", ["ancestry"], name: "index_nations_on_ancestry", using: :btree
+
+  create_table "nodes", force: :cascade do |t|
+    t.integer  "default_photo"
+    t.string   "name"
+    t.geometry "points",        limit: {:srid=>0, :type=>"multi_point"}
+    t.geometry "center",        limit: {:srid=>0, :type=>"point"}
+    t.datetime "created_at",                                             null: false
+    t.datetime "updated_at",                                             null: false
+  end
 
   create_table "photos", force: :cascade do |t|
     t.integer  "node_id"
