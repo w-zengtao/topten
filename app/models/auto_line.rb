@@ -1,0 +1,3 @@
+class AutoLine < Line 
+
+end
