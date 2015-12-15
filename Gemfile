@@ -19,6 +19,11 @@ gem 'acts_as_commentable'
 gem 'carrierwave'
 gem 'carrierwave-upyun'
 
+gem 'redis-rails'
+gem 'redis-namespace'
+gem 'ost'
+gem 'soulmate', :require => 'soulmate/server'
+
 group :development do
   gem 'spring'
   gem 'better_errors'
